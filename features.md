@@ -1,0 +1,7 @@
+- Admin
+- Sellers
+    - Multiple handling status
+    - discount
+    - notification for discount
+    - item count / stock out
+- Buyers
