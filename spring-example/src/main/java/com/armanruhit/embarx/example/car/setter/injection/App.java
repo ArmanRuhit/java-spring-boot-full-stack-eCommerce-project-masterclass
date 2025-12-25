@@ -1,20 +1,14 @@
-package com.armanruhit.embarx.example;
+package com.armanruhit.embarx.example.car.setter.injection;
 
-import com.armanruhit.embarx.example.car.bean.MyBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Hello world!
- */
 public class App {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationBeanContext.xml");
 
-        MyBean myBean = (MyBean) context.getBean("myBean");
+        Car car = (Car) context.getBean("carBeanSetter");
 
-        System.out.println(myBean);
+        car.displayCar();
     }
-
-
 }
