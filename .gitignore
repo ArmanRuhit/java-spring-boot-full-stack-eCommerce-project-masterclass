@@ -1,4 +1,3 @@
 .idea
 .mvn
 *.class
-spring-example/target/classes/com/armanruhit/embarx/example/App.class
