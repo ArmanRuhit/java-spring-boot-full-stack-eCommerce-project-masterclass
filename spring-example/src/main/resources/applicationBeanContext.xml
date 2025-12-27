@@ -20,7 +20,20 @@
     </bean>
 
     <bean id="carBeanSetter" class="com.armanruhit.embarx.example.car.setter.injection.Car">
-        <property name="specification" value="carSpecificationBeanSetter" />
+        <property name="specification" ref="carSpecificationBeanSetter" />
     </bean>
+
+    <bean id="userDatabaseBean" class="com.armanruhit.embarx.example.loose.coupling.UserDatabase" />
+
+    <bean id="webServiceDataProviderBean" class="com.armanruhit.embarx.example.loose.coupling.WebServiceDataProvider" />
+
+    <bean id="userManagerUserDatabaseBean" class="com.armanruhit.embarx.example.loose.coupling.UserManager">
+        <constructor-arg ref="userDatabaseBean" />
+    </bean>
+
+    <bean id="userManagerWebServiceDataProviderBean" class="com.armanruhit.embarx.example.loose.coupling.UserManager">
+        <constructor-arg ref="webServiceDataProviderBean" />
+    </bean>
+
 
 </beans>
