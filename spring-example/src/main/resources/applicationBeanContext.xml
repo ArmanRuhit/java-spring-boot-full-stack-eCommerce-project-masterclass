@@ -1,39 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="myBean" class="com.armanruhit.embarx.example.car.bean.MyBean">
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+
+<bean id="myBean" class="com.armanruhit.embarkx.example.car.bean.MyBean">
         <property name="message" value="I am a first bean" />
     </bean>
 
-    <bean id="carSpecificationBeanConstructor" class="com.armanruhit.embarx.example.car.constructor.injection.Specification">
+    <bean id="carSpecificationBeanConstructor" class="com.armanruhit.embarkx.example.car.constructor.injection.Specification">
         <property name="make" value="Toyota" />
         <property name="model" value="Corolla" />
     </bean>
 
-    <bean id="carBeanConstructor" class="com.armanruhit.embarx.example.car.constructor.injection.Car">
+    <bean id="carBeanConstructor" class="com.armanruhit.embarkx.example.car.constructor.injection.Car">
         <constructor-arg ref="carSpecificationBeanConstructor" />
     </bean>
 
-    <bean id="carSpecificationBeanSetter" class="com.armanruhit.embarx.example.car.setter.injection.Specification">
+    <bean id="carSpecificationBeanSetter" class="com.armanruhit.embarkx.example.car.setter.injection.Specification">
         <property name="make" value="Toyota" />
         <property name="model" value="Corolla" />
     </bean>
 
-    <bean id="carBeanSetter" class="com.armanruhit.embarx.example.car.setter.injection.Car">
+    <bean id="carBeanSetter" class="com.armanruhit.embarkx.example.car.setter.injection.Car">
         <property name="specification" ref="carSpecificationBeanSetter" />
     </bean>
 
-    <bean id="userDatabaseBean" class="com.armanruhit.embarx.example.loose.coupling.UserDatabase" />
+    <bean id="userDatabaseBean" class="com.armanruhit.embarkx.example.loose.coupling.UserDatabase" />
 
-    <bean id="webServiceDataProviderBean" class="com.armanruhit.embarx.example.loose.coupling.WebServiceDataProvider" />
+    <bean id="webServiceDataProviderBean" class="com.armanruhit.embarkx.example.loose.coupling.WebServiceDataProvider" />
 
-    <bean id="userManagerUserDatabaseBean" class="com.armanruhit.embarx.example.loose.coupling.UserManager">
+    <bean id="userManagerUserDatabaseBean" class="com.armanruhit.embarkx.example.loose.coupling.UserManager">
         <constructor-arg ref="userDatabaseBean" />
     </bean>
 
-    <bean id="userManagerWebServiceDataProviderBean" class="com.armanruhit.embarx.example.loose.coupling.UserManager">
+    <bean id="userManagerWebServiceDataProviderBean" class="com.armanruhit.embarkx.example.loose.coupling.UserManager">
         <constructor-arg ref="webServiceDataProviderBean" />
     </bean>
 
 
+<!--    Autowire by name -->
+    <bean id="specification" class="com.armanruhit.embarkx.example.autowire.name.Specification">
+        <property name="make" value="Toyota" />
+        <property name="model" value="Corolla" />
+    </bean>
+
+    <bean id="carBeanAutowireByName" class="com.armanruhit.embarkx.example.autowire.name.Car" autowire="byName">
+    </bean>
+
+<!--    Autowire by type-->
+<!--    <bean id="specificationAutowireType" class="type.autowire.com.armanruhit.embarkx.example.Specification">-->
+<!--        <property name="make" value="Toyota" />-->
+<!--        <property name="model" value="Corolla" />-->
+<!--    </bean>-->
+
+    <bean id="carBeanAutowireByType" class="com.armanruhit.embarkx.example.autowire.type.Car" autowire="byType" >
+    </bean>
+
+
+<!--    Autowire by constructor-->
+    <bean id="specificationAutowireConstructor" class="com.armanruhit.embarkx.example.autowire.constructor.Specification">
+        <property name="make" value="Toyota" />
+        <property name="model" value="Corolla" />
+    </bean>
+
+    <bean id="carBeanAutowireByConstructor" class="com.armanruhit.embarkx.example.autowire.constructor.Car" autowire="constructor" >
+    </bean>
+
+<!--    Component Scan-->
+    <context:component-scan base-package="com.armanruhit.embarx.example.componentscan.xml" />
 </beans>

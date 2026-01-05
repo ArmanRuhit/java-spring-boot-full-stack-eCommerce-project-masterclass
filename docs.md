@@ -41,3 +41,35 @@
 - Dependency Injection Types
   - Constructor
   - Setter
+    - by type
+    - by Name
+
+## Section 4
+
+- `Annotations`
+  - `Annotations` in java provide a way to add metadata to your code
+- `Component`
+  - `Component` refers to a Java class that is management by the Spring IoC container
+- `Component Scanning`
+  - It is a feature helps to automatically detect and register beans from predefined package paths.
+
+## Section 5
+- `Components of Spring Boot`
+  - Spring Boot Starters
+  - Auto Configuration
+  - Spring Boot Actuator
+  - Embedded Server
+  - Spring Boot Devtools
+
+- Advantages of Spring Boot
+  - Stand alone and Quick Start
+  - Starter Code
+  - Less Configuration
+  - Reduced cost and application development time
+- Architecture tiers of Spring Boot
+  - Presentation Layer
+    - Presentation Layer presents the data and the application features to the user. This is the layer where in all the controller classes exist.
+  - Service Layer
+    - Service Layer is where business logic resides in the application. Tasks such as evaluations, decision-making, processing of data is done at this layer.
+  - Data access layer
+    - data access layer is the layer where all the repository class reside
