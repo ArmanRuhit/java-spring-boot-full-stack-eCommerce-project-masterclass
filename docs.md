@@ -73,3 +73,5 @@
     - Service Layer is where business logic resides in the application. Tasks such as evaluations, decision-making, processing of data is done at this layer.
   - Data access layer
     - data access layer is the layer where all the repository class reside
+
+## Section 6
